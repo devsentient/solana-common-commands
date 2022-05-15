@@ -1,4 +1,6 @@
-1. Change authorized withdrawer
+# Change the 
+
+### 1. Change authorized withdrawer
 - create a nonce account if you don’t have one:
 ```
   solana-keygen new -o nonce-keypair.json
@@ -14,7 +16,9 @@ solana vote-authorize-withdrawer-checked --sign-only --nonce <PUBKEY> --nonce-au
 ```
 - send the current owner (Shakudo) the printout
 
-2. Create staking account or set existing staking account with your withdraw keypair
+(Owner (Shakudo) will run a command on our side like `solana vote-authorize-withdrawer-checked DeNodee9LR1WPokmRqidmAQEq8UbBqNCv6QfFTvU6k69 withdrawer.json another.json --blockhash <from-client> --signer <from-client>`)
+
+### 2. Create staking account or set existing staking account with your withdraw keypair
 To create a new staking account:
 ```
 solana create-stake-account --from <KEYPAIR> stake-account.json <AMOUNT> \
