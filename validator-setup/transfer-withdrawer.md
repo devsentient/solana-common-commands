@@ -1,5 +1,7 @@
 # Transfer Withdrawer to another entity
 
+Please run the following commands from the machine that contains your new withdraw key, and do not upload your new withdraw key to your solana validator.
+
 ### 1. Change authorized withdrawer
 - create a nonce account if you don’t have one:
 ```
