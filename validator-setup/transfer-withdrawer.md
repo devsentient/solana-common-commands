@@ -18,7 +18,7 @@ BIP39 Passphrase (empty for none):
 
 Wrote new keypair to nonce-keypair.json
 ==================================================================================
-pubkey: CQwaLVSMDNPNFxrTmMJKBjLwCZP2cEQZFqmCy5xzaB2r
+pubkey: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 ==================================================================================
 Save this seed phrase and your BIP39 passphrase to recover your new keypair:
 plastic flame beauty together small hidden run planet faculty august weird arrange
@@ -37,9 +37,9 @@ You will get output that looks like this:
 ```
 Balance: 0.1 SOL
 Minimum Balance Required: 0.00144768 SOL
-Nonce blockhash: 9MKPRoeZiuUwXxpXyRBifLNFAzLjLWh3cezCuXE7TXKc
+Nonce blockhash: BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
 Fee: 5000 lamports per signature
-Authority: 4uzi7zTHEJvbSwcUtwjBpmdSgr5ahNkq4QPPWNHXmqR9
+Authority: CCCCCCCCCCCCCCCCCCCCCCCCCCCC
 ```
 Note the nonce blockhash value. It will be referred to as BLOCKHASH.
 - use nonce info from above
