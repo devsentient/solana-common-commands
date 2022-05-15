@@ -33,9 +33,18 @@ solana create-nonce-account nonce-keypair.json 1
 ```
   solana nonce-account nonce-keypair.json
 ```
+You will get output that looks like this:
+```
+Balance: 0.1 SOL
+Minimum Balance Required: 0.00144768 SOL
+Nonce blockhash: 9MKPRoeZiuUwXxpXyRBifLNFAzLjLWh3cezCuXE7TXKc
+Fee: 5000 lamports per signature
+Authority: 4uzi7zTHEJvbSwcUtwjBpmdSgr5ahNkq4QPPWNHXmqR9
+```
+Note the nonce blockhash value. It will be referred to as BLOCKHASH.
 - use nonce info from above
 ```
-solana vote-authorize-withdrawer-checked --sign-only --nonce <PUBKEY> --nonce-authority <KEYPAIR> --blockhash <BLOCKHASH> DeNodee9LR1WPokmRqidmAQEq8UbBqNCv6QfFTvU6k69 DeNodee9LR1WPokmRqidmAQEq8UbBqNCv6QfFTvU6k69 <your-new-authorized-withdraw-keypair>
+solana vote-authorize-withdrawer-checked --sign-only --nonce <PUBKEY> --nonce-authority nonce-keypair.json --blockhash <BLOCKHASH> DeNodee9LR1WPokmRqidmAQEq8UbBqNCv6QfFTvU6k69 DNodeaLZFq2PaJvJZTE6CikdknDzPC7wbEzdu4DNpY <your-new-authorized-withdraw-keypair>
 ```
 - send the current owner (Shakudo) the printout
 
