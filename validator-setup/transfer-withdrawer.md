@@ -1,4 +1,4 @@
-# Change the 
+# Transfer Withdrawer to another entity
 
 ### 1. Change authorized withdrawer
 - create a nonce account if you don’t have one:
