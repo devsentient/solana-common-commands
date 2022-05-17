@@ -46,7 +46,7 @@ Authority: CCCCCCCCCCCCCCCCCCCCCCCCCCCC
 Note the nonce blockhash value. It will be referred to as BLOCKHASH.
 - use nonce info from above
 ```
-solana vote-authorize-withdrawer-checked --sign-only --nonce <PUBKEY> --nonce-authority nonce-keypair.json --blockhash <BLOCKHASH> DeNodee9LR1WPokmRqidmAQEq8UbBqNCv6QfFTvU6k69 DNodeaLZFq2PaJvJZTE6CikdknDzPC7wbEzdu4DNpY <your-new-authorized-withdraw-keypair>
+solana vote-authorize-withdrawer-checked --sign-only --nonce <PUBKEY> --nonce-authority nonce-keypair.json --blockhash <BLOCKHASH> DeNodee9LR1WPokmRqidmAQEq8UbBqNCv6QfFTvU6k69 DNodec2t2PZjhtGkBwhXUpg8gpfPph5QSawh8C91RX8b <your-new-authorized-withdraw-keypair>
 ```
 - send the current owner (Shakudo) the printout
 
