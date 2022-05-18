@@ -27,7 +27,9 @@ plastic flame beauty together small hidden run planet faculty august weird arran
 ==================================================================================
 ```
 Copy the value that you see for pubkey. It will be referred to as PUBKEY henceforth.
-Next, let's generate a nonce account with the newly created key pair. You can use any key as the nonce auth keypair as long as it is consistent throughout:
+Next, let's generate a nonce account with the newly created key pair. 
+
+You should specify another key to be your <NONCE-AUTH-KEYPAIR>, and keep it consistent throughout:
 ```
 solana create-nonce-account nonce-keypair.json 0.1 -k <NONCE-AUTH-KEYPAIR> -u m
 ```
@@ -44,8 +46,10 @@ Fee: 5000 lamports per signature
 Authority: CCCCCCCCCCCCCCCCCCCCCCCCCCCC
 ```
 Note the nonce blockhash value. It will be referred to as BLOCKHASH. 
+  
 Note the authority. It will be referred to as NONCE-AUTH-KEYPAIR.
-FEE_PAYER_KEYPAIR can be any account that has some SOL
+  
+FEE_PAYER_KEYPAIR can be any account that has some SOL. It can be the same as your nonce authority keypair. 
 - use nonce info from above:
 ```
 solana vote-authorize-withdrawer-checked --sign-only -u m --blockhash <BLOCKHASH> --fee-payer <FEE_PAYER_KEYPAIR> --nonce <PUBKEY> --nonce-authority <NONCE-AUTH-KEYPAIR>  DeNodee9LR1WPokmRqidmAQEq8UbBqNCv6QfFTvU6k69 DNodec2t2PZjhtGkBwhXUpg8gpfPph5QSawh8C91RX8b <your-new-authorized-withdraw-keypair>
