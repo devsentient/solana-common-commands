@@ -27,13 +27,13 @@ plastic flame beauty together small hidden run planet faculty august weird arran
 ==================================================================================
 ```
 Copy the value that you see for pubkey. It will be referred to as PUBKEY henceforth.
-Next, let's generate a nonce account with the newly created key pair:
+Next, let's generate a nonce account with the newly created key pair. You can use any key as the nonce auth keypair as long as it is consistent throughout:
 ```
-solana create-nonce-account nonce-keypair.json 1
+solana create-nonce-account nonce-keypair.json 0.1 -k <NONCE-AUTH-KEYPAIR> -u m
 ```
 - print out nonce info:
 ```
-  solana nonce-account nonce-keypair.json
+  solana nonce-account nonce-keypair.json -u m
 ```
 You will get output that looks like this:
 ```
@@ -43,14 +43,26 @@ Nonce blockhash: BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
 Fee: 5000 lamports per signature
 Authority: CCCCCCCCCCCCCCCCCCCCCCCCCCCC
 ```
-Note the nonce blockhash value. It will be referred to as BLOCKHASH.
-- use nonce info from above
+Note the nonce blockhash value. It will be referred to as BLOCKHASH. 
+Note the authority. It will be referred to as NONCE-AUTH-KEYPAIR.
+FEE_PAYER_KEYPAIR can be any account that has some SOL
+- use nonce info from above:
 ```
-solana vote-authorize-withdrawer-checked --sign-only --nonce <PUBKEY> --nonce-authority nonce-keypair.json --blockhash <BLOCKHASH> DeNodee9LR1WPokmRqidmAQEq8UbBqNCv6QfFTvU6k69 DNodec2t2PZjhtGkBwhXUpg8gpfPph5QSawh8C91RX8b <your-new-authorized-withdraw-keypair>
-```
-- send the current owner (Shakudo) the printout
+solana vote-authorize-withdrawer-checked --sign-only -u m --blockhash <BLOCKHASH> --fee-payer <FEE_PAYER_KEYPAIR> --nonce <PUBKEY> --nonce-authority <NONCE-AUTH-KEYPAIR>  DeNodee9LR1WPokmRqidmAQEq8UbBqNCv6QfFTvU6k69 DNodec2t2PZjhtGkBwhXUpg8gpfPph5QSawh8C91RX8b <your-new-authorized-withdraw-keypair>
 
-(Shakudo will run a command on our side like `solana vote-authorize-withdrawer-checked DeNodee9LR1WPokmRqidmAQEq8UbBqNCv6QfFTvU6k69 withdrawer.json new_withdrawal_authority_pubkey --blockhash <from-client> --signer <from-client>`)
+```
+- send the current owner (Shakudo) the printout from the above command
+- send Shakudo your nonce pubkey, nonce auth pubkey, and your fee-payer pubkey
+- confirm the pubkey of your new authorized withdrawer
+
+
+[no action needed] Shakudo will run a command on our side like the following
+```
+solana vote-authorize-withdrawer-checked <VOTE_ACCOUNT_PUBKEY> <CURRENT_WITHDRAWER_KEYPAIR> <NEW_WITHDRAWER_PUBKEY> --blockhash <blockhash-from-client> --nonce <nonce-pubkey-from-client> --nonce-authority <nonce-auth-pubkey-from-client> --signer <signer-from-client> -k <CURRENT_WITHDRAWER_KEYPAIR> -u m --fee-payer <fee-payer-from-client>
+
+## e.g.
+solana vote-authorize-withdrawer-checked DeNodee9LR1WPokmRqidmAQEq8UbBqNCv6QfFTvU6k69 withdrawer.json <NEW_WITHDRAWER_PUBKEY> --blockhash <blockhash-from-client> --nonce <nonce-pubkey-from-client> --nonce-authority <nonce-auth-pubkey-from-client> --signer <from-client> -k withdrawer.json -u m --fee-payer <fee-payer-from-client>
+```
 
 ### 2. Create staking account or set existing staking account with your withdraw keypair
 To create a new staking account:
